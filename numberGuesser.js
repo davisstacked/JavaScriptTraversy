@@ -18,8 +18,36 @@ const UIminNum = document.querySelector('.min-num');
 const UImaxNum = document.querySelector('.max-num');
 const UIguessBtn = document.querySelector('#guess-btn');
 const UIguessInput = document.querySelector('#guess-input');
-const message = document.querySelector('.message');
+const UImessage = document.querySelector('.message');
 
 // ASSIGN UI MIN AND MAX
-minNum.textContent = min;
-maxNum.textContent = max;
+UIminNum.textContent = min;
+UImaxNum.textContent = max;
+
+// LISTEN FOR GUESS
+UIguessBtn.addEventListener('click', function () {
+  let guess = parseInt(UIguessInput.value);
+
+  // Validate
+  if (isNaN(guess) || guess < min || guess > max) {
+    setMessage(`Please enter a number between ${min} and ${max}`, 'red');
+  }
+
+  // Check if won
+  if (guess === winningNum) {
+    // Disable input
+    UIguessInput.disabled = true;
+    // Change border color
+    UIguessInput.style.borderColor = 'green';
+    // Set message
+    setMessage(`${winningNum} is correct! YOU WIN!`, 'green');
+  } else {
+
+  }
+});
+
+// Set message
+function setMessage(msg, color) {
+  UImessage.style.color = color;
+  UImessage.textContent = msg;
+}
