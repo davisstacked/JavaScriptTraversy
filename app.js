@@ -179,7 +179,6 @@ switch (new Date().getDay()) {
 // }
 
 
-
 // 26. TRAVERSING THE DOM
 // let val;
 
@@ -202,6 +201,78 @@ switch (new Date().getDay()) {
 
 // console.log(val);
  
+
+// 48. using object.create
+
+// const personPrototypes = {
+//   greeting: function () {
+//     return `Hello there ${this.firstName} ${this.lastName}`;
+//   },
+//   getsMarried: function (newLastName) {
+//     this.lastName = newLastName;
+//   }
+// }
+
+// const mary = Object.create(personPrototypes);
+// mary.firstName = 'Mary';
+// mary.lastName = 'Williams';
+// mary.age = 30;
+
+// mary.getsMarried('Thompson')
+
+// console.log(mary.greeting());
+
+// const brad = Object.create(personPrototypes), {
+//   firstName: {value: 'Brad'}
+// }
+
+//49. ES6 classes
+// class Person {
+//   constructor(firstName, lastName) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.birthday = new Date(dob);
+//   }
+
+//   greeting() {
+//     return `Hello there ${this.firstName} ${this.lastName}`;
+//   }
+
+//   calculateAge() {
+//     const diff = Date.now() - this.birthday.getTime();
+//     const ageDate = new Date(diff);
+//     return Math.abs(ageDate.getUTCFullYear)
+//   }
+// }
+
+// const mary = new Person('Mary', 'Williams');
+
+// // console.log(mary.greeting());
+
+// class Person {
+//   constructor(firstName, lastName) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//   }
+
+//   greeting() {
+//     return `Hello there ${this.firstName} ${this.lastName}`;
+//   }
+// }
+
+// class Customer extends Person {
+//   constructor(firstName, lastName, phone, membership) {
+//     super(firstName, lastName);
+//     this.phone = phone;
+//     this.membership = membership;
+//   }
+
+//   static getMembershipCost()
+// }
+
+// const john = new Customer('John', 'Doe', '555-555-5555', 'Standard');
+
+// console.log(john);
 
 // // 66. ES6 Promises
 // function createPost(post) {
