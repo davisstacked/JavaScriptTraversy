@@ -24,7 +24,7 @@ const posts = [
 // getPosts();
 
 function createPost(post) {
-  return new Promise(function (resolve, reject) {
+  return new Promise((resolve, reject) => {
     setTimeout(function () {
       posts.push(post);
       const error = true;
