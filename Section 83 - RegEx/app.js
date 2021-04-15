@@ -59,9 +59,26 @@ re = /Hel{2,}o/i; // Must occur at least {m} times
 // Parentheses () - Grouping
 re = /([0-9]x){3}/; //  would look for number 0-9x 3xs 
 
+// Shorthand Character Classes
+
+re = /\w/; // any Word character, any alphanumeric or _ (has to be letter number or underscore)
+re = /\w+/; // += 1 or more word characters
+re = /\W/; // Non-word characters (anything but number letter or underscore)
+re = /\d/; // Match any digit
+re = /\d+/; // Match += 1 or more digits
+re = /\D/; // Match any non-digit
+re = /\s/; // Match whitespace char
+re = /\S/; // Match non-whitespace char
+re = /Hell\b/i; // word boundary
+
+// Assertions
+re = /x(?=y)/; // Match x only if it's followed by y
+re = /x(?!y)/; // Match x only if it's NOT followed by y
+
+
 
 // string to match
-const str = 'Hello';
+const str = 'x';
 
 // log results
 const result = re.exec(str);
