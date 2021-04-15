@@ -42,9 +42,26 @@ re = /^h*llo$/i; // Matches any character 0 or more times.
 re = /gra?e?y/i; // Optional character 
 re = /gre?a?y\?/i; // escape character
 
+// Brackets [] - Character Sets
+re = /gr[ae]y/i; // Must an an a or e 
+re = /[GF]ray/; // Must an an uppercase G or F
+re = /[^GF]ray/; // Will match anything other than G or F
+re = /[A-Z]/; // match any uppercase character
+re = /[a-z]/; // match any lowercase letter 
+re = /[A-Za-z]/; // match any letter
+re = /[0-9]/; // Match any digit
+
+// Braces {} - Quantifiers
+re = /Hel{2}o/i; // Must occur exactly {m} amount of times
+re = /Hel{2, 4}o/i; // l Must occur between 2 and 4 times.
+re = /Hel{2,}o/i; // Must occur at least {m} times
+
+// Parentheses () - Grouping
+re = /([0-9]x){3}/; //  would look for number 0-9x 3xs 
+
 
 // string to match
-const str = 'Gray';
+const str = 'Hello';
 
 // log results
 const result = re.exec(str);
