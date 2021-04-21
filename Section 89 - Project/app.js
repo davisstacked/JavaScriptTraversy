@@ -13,7 +13,7 @@ const data = [
     gender: 'male',
     lookingFor: 'female',
     location: 'Miami FL',
-    image: 'https://randomuser.me/api/portraits/woman/82.jpg'
+    image: 'https://randomuser.me/api/portraits/women/82.jpg'
   },
   {
     name: 'William Johnson',
@@ -27,14 +27,19 @@ const data = [
 
 const profiles = profileIterator(data);
 
+// Call first profile
+nextProfile();
+
 // Next Event
 document.getElementById('next').addEventListener('click', nextProfile);
 
 // Next Profile Display
 function nextProfile() {
   const currentProfile = profiles.next().value;
-
-  document.getElementById('profileDisplay').innerHTML = `
+  if (currentProfile !== undefined) {
+    
+  
+    document.getElementById('profileDisplay').innerHTML = `
     <ul class="list-group">
       <li class="list-group-item">Name: ${currentProfile.name}</li>
       <li class="list-group-item">Age: ${currentProfile.age}</li>
@@ -44,7 +49,11 @@ function nextProfile() {
     </ul>
   `;
 
-  document.getElementById('imageDisplay')
+    document.getElementById('imageDisplay').innerHTML = `<img src="${currentProfile.image}">`;
+  } else {
+    // No more profiles 
+    window.location.reload();
+  }
 }
 
 // Profile Iterator
